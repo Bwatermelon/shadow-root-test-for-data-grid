@@ -1,22 +1,25 @@
-import * as React from 'react';
-import { DataGridPro } from '@mui/x-data-grid-pro';
-import { useDemoData } from '@mui/x-data-grid-generator';
+import * as React from "react";
+import { DataGridPro, GridToolbar } from "@mui/x-data-grid-pro";
+import { useDemoData } from "@mui/x-data-grid-generator";
 
 export default function DataGridProDemo() {
   const { data } = useDemoData({
-    dataSet: 'Commodity',
+    dataSet: "Commodity",
     rowLength: 100000,
-    editable: true,
+    editable: true
   });
 
   return (
-    <div style={{ height: 520, width: '100%' }}>
+    <div style={{ height: 520, width: "100%" }}>
       <DataGridPro
         {...data}
         loading={data.rows.length === 0}
         rowHeight={38}
         checkboxSelection
         disableSelectionOnClick
+        components={{
+          Toolbar: GridToolbar
+        }}
       />
     </div>
   );
